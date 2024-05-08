@@ -1,5 +1,5 @@
-import { signin, signIn } from 'next-auth/client';
-import { useRouter } from 'next/router';
+import { signin, signIn } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 import { useRef } from 'react';
 
 import toast from 'react-hot-toast';
@@ -12,36 +12,36 @@ function LoginPage() {
 
   async function loginHandler(event) {
     event.preventDefault();
-
+  
     const enteredEmail = emailInputRef.current.value;
     const enteredPassword = passwordInputRef.current.value;
-
+  
     if (!enteredEmail || !enteredPassword) {
       return;
     }
-
-    const toastId = toast.loading('Loggin In...');
-
-    // never gets rejected, always an object
-    const result = await signIn('credentials', {
-      redirect: false,
-      email: enteredEmail,
-      password: enteredPassword,
-    });
-
-    console.log(result);
-    console.log(result.error);
-    if (result.error) {
-      toast.dismiss(toastId);
-      toast.error(result.error);
-    }
-
-    if (!result.error) {
-      toast.dismiss(toastId);
-      router.replace('/dashboard');
-      toast.success('Welcome!');
-    }
+  
+    const toastId = toast.loading('Logging In...');
+  
+      // Attempt to sign in
+      const result = await signIn('credentials',{
+        email: enteredEmail,
+        password: enteredPassword,
+      });
+  
+      // Log the result
+      console.log(result);
+  
+      // Handle the result
+      if (result?.error) {
+        toast.dismiss(toastId);
+        toast.error(result.error);
+      } else {
+        toast.dismiss(toastId);
+        router.push('/dashboard');
+        toast.success('Welcome!');
+      }
   }
+  
 
   return (
     <section className="w-full bg-white">
@@ -95,7 +95,7 @@ function LoginPage() {
       <div className="flex  items-center justify-center ">
         <div className="relative w-3/12 ">
           <button
-            onClick={signin}
+            onClick={() => signIn('Google')}
             className="inline-block w-full px-5 py-4 mt-3 text-lg font-bold text-center text-gray-900 transition duration-200 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 ease"
           >
             Login with Google

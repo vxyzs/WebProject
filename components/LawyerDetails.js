@@ -111,9 +111,9 @@ function LawyerDetails({ lawyer }) {
 
         <div className="w-1/4 text-right">
           <Link href="/lawyers">
-            <a className="inline-block w-full px-5 py-4 text-lg font-medium text-center text-white transition duration-200 bg-blue-600 rounded-lg hover:bg-blue-700 ease">
+            <div className="inline-block w-full px-5 py-4 text-lg font-medium text-center text-white transition duration-200 bg-blue-600 rounded-lg hover:bg-blue-700 ease">
               Back
-            </a>
+            </div>
           </Link>
         </div>
       </div>

@@ -26,7 +26,7 @@ async function handler(req, res) {
     const db = client.db();
 
     //checks if user already exists from MongoDb
-    const existingUser = await db.collection('users').findOne({ email: email });
+    const existingUser = await db.collection('User').findOne({ email: email });
     if (existingUser) {
       res.status(422).json({ message: 'User already exists!' });
       client.close();
@@ -37,7 +37,7 @@ async function handler(req, res) {
     const hashedPassword = await hashPassword(password);
 
     // create user
-    const result = await db.collection('users').insertOne({
+    const result = await db.collection('User').insertOne({
       email: email,
       password: hashedPassword,
       firstName,

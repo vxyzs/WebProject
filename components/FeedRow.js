@@ -27,9 +27,9 @@ function FeedRow(props) {
       </td>
       <td className="p-2 md:border md:border-grey-500 text-left block md:table-cell">
         <Link href={`/dashboard/${props.case.uid}`}>
-          <a className="py-2 px-3 bg-blue-700 hover:bg-blue-500 text-white hover:text-black rounded transition duration-300">
+          <div className="py-2 px-3 bg-blue-700 hover:bg-blue-500 text-white hover:text-black rounded transition duration-300">
             View
-          </a>
+          </div>
         </Link>
       </td>
     </tr>

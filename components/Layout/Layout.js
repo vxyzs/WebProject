@@ -1,9 +1,9 @@
-import { signOut, useSession } from 'next-auth/client';
+import { signOut, useSession } from 'next-auth/react';
 import { Fragment } from 'react';
 import Link from 'next/link';
 
 function Layout(props) {
-  const [session] = useSession();
+  const {data: session} = useSession();
   return (
     <Fragment>
       <nav className="bg-gray-100">
@@ -12,7 +12,7 @@ function Layout(props) {
             <div className="flex space-x-4">
               {/* logo  */}
               <div>
-                <a className="flex items-center py-5 px-2 text-gray-700 hover:text-gray-900">
+                <div className="flex items-center py-5 px-2 text-gray-700 hover:text-gray-900">
                   <svg
                     className="h-6 w-6 text-blue-700"
                     xmlns="http://www.w3.org/2000/svg"
@@ -24,21 +24,21 @@ function Layout(props) {
                   <Link href="/" passHref>
                     <span className=" cursor-pointer font-bold">Adaalat</span>
                   </Link>
-                </a>
+                </div>
               </div>
 
               {/* primary nav  */}
               {session && (
                 <div className="hidden md:flex items-center space-x-1">
                   <Link href="/dashboard">
-                    <a className="py-5 px-3 text-gray-700 hover:text-gray-900">
+                    <div className="py-5 px-3 text-gray-700 hover:text-gray-900">
                       Dashboard
-                    </a>
+                    </div>
                   </Link>
                   <Link href="/dashboard/AddCases">
-                    <a className="py-5 px-3 text-gray-700 hover:text-gray-900">
+                    <div className="py-5 px-3 text-gray-700 hover:text-gray-900">
                       Add cases
-                    </a>
+                    </div>
                   </Link>
                 </div>
               )}
@@ -60,17 +60,17 @@ function Layout(props) {
                 onClick={signOut}
                 className="hidden cursor-pointer md:flex items-center space-x-1"
               >
-                <a className="py-2 px-3 bg-blue-700 hover:bg-blue-500 text-white hover:text-black rounded transition duration-300">
+                <div className="py-2 px-3 bg-blue-700 hover:bg-blue-500 text-white hover:text-black rounded transition duration-300">
                   SignOut
-                </a>
+                </div>
               </div>
             )}
             {!session && (
               <div className="hidden md:flex items-center space-x-1">
                 <Link href="/auth">
-                  <a className="py-2 px-3 bg-blue-700 hover:bg-blue-500 text-white hover:text-black rounded transition duration-300">
+                  <div className="py-2 px-3 bg-blue-700 hover:bg-blue-500 text-white hover:text-black rounded transition duration-300">
                     SignUp
-                  </a>
+                  </div>
                 </Link>
               </div>
             )}
@@ -101,21 +101,21 @@ function Layout(props) {
         {session && (
           <div className="mobile-menu hidden md:hidden">
             <Link href="/dashboard">
-              <a className="block py-2 px-4 text-sm hover:bg-gray-200">
+              <div className="block py-2 px-4 text-sm hover:bg-gray-200">
                 Dashboard
-              </a>
+              </div>
             </Link>
             <Link href="/AddCases">
-              <a className="block py-2 px-4 text-sm hover:bg-gray-200">
+              <div className="block py-2 px-4 text-sm hover:bg-gray-200">
                 Add cases
-              </a>
+              </div>
             </Link>
 
             {!session && (
               <Link href="/auth">
-                <a className="block py-2 px-4 text-sm hover:bg-gray-200">
+                <div className="block py-2 px-4 text-sm hover:bg-gray-200">
                   Signup
-                </a>
+                </div>
               </Link>
             )}
           </div>

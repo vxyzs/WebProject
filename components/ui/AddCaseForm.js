@@ -1,14 +1,14 @@
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { v4 } from 'uuid';
 
 import toast from 'react-hot-toast';
-import { useSession } from 'next-auth/client';
+import { useSession } from 'next-auth/react';
 
 export default function AddCaseForm(props) {
   const router = useRouter();
-  const [session] = useSession();
+  const {data: session} = useSession();
 
   const { names } = props;
   const {

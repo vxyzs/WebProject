@@ -70,8 +70,7 @@ function MeetTheDevelopersPage() {
               Full-Stack and JamStack developer.
             </p>
             <Link href="https://www.linkedin.com/in/georgeyvb/">
-              <a
-                target="_blank"
+              <div
                 className="mt-3 text-pink-500 inline-flex items-center"
               >
                 Learn More
@@ -86,7 +85,7 @@ function MeetTheDevelopersPage() {
                 >
                   <path d="M5 12h14M12 5l7 7-7 7"></path>
                 </svg>
-              </a>
+              </div>
             </Link>
           </div>
         </div>
@@ -100,8 +99,7 @@ function MeetTheDevelopersPage() {
               in Computer engineering.
             </p>
             <Link href="https://www.linkedin.com/in/amisha-naik-b2a633191">
-              <a
-                target="_blank"
+              <div
                 className="mt-3 text-pink-500 inline-flex items-center"
               >
                 Learn More
@@ -116,7 +114,7 @@ function MeetTheDevelopersPage() {
                 >
                   <path d="M5 12h14M12 5l7 7-7 7"></path>
                 </svg>
-              </a>
+              </div>
             </Link>
           </div>
           <div className="sm:w-32 sm:order-none order-first sm:h-32 h-20 w-20 sm:ml-10 inline-flex items-center justify-center rounded-full bg-pink-100 text-pink-500 flex-shrink-0">
@@ -149,8 +147,7 @@ function MeetTheDevelopersPage() {
               Computer Science student and aspiring software developer.
             </p>
             <Link href="https://www.linkedin.com/in/saif-farooqui">
-              <a
-                target="_blank"
+              <div
                 className="mt-3 text-pink-500 inline-flex items-center"
               >
                 Learn More
@@ -165,7 +162,7 @@ function MeetTheDevelopersPage() {
                 >
                   <path d="M5 12h14M12 5l7 7-7 7"></path>
                 </svg>
-              </a>
+              </div>
             </Link>
           </div>
         </div>

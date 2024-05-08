@@ -1,6 +1,7 @@
+import React from 'react';
 import AddCase from '@/components/AddCase';
 import { connectToDatabase, getAllLawyerProfiles } from '@/helpers/db-utils';
-import { getSession } from 'next-auth/client';
+import { getSession } from 'next-auth/react';
 
 import Head from 'next/head';
 

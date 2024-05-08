@@ -1,9 +1,9 @@
 import SignUp from '@/components/auth/SignUp';
-import { getSession } from 'next-auth/client';
+import { getSession } from 'next-auth/react';
 
 import Head from 'next/head';
 
-function SignUpPage() {
+function SignUppage() {
   return (
     <>
       <Head>
@@ -36,4 +36,4 @@ export async function getServerSideProps(context) {
   };
 }
 
-export default SignUpPage;
+export default SignUppage;

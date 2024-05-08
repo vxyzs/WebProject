@@ -25,7 +25,7 @@ function HomePage() {
                 </p>
                 <div className="relative flex flex-col sm:flex-row sm:space-x-4">
                   <Link href="/auth">
-                    <a className="flex items-center w-full px-6 py-3 mb-3 text-lg text-white bg-indigo-700 sm:mb-0 hover:bg-indigo-800 sm:w-auto rounded-2xl">
+                    <div className="flex items-center w-full px-6 py-3 mb-3 text-lg text-white bg-indigo-700 sm:mb-0 hover:bg-indigo-800 sm:w-auto rounded-2xl">
                       Get Started Now
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -40,10 +40,10 @@ function HomePage() {
                         <line x1="5" y1="12" x2="19" y2="12"></line>
                         <polyline points="12 5 19 12 12 19"></polyline>
                       </svg>
-                    </a>
+                    </div>
                   </Link>
                   <Link href="/developers">
-                    <a className="flex items-center w-full px-6 py-3 mb-3 text-lg text-white bg-indigo-700 sm:mb-0 hover:bg-indigo-800 sm:w-auto rounded-2xl">
+                    <div className="flex items-center w-full px-6 py-3 mb-3 text-lg text-white bg-indigo-700 sm:mb-0 hover:bg-indigo-800 sm:w-auto rounded-2xl">
                       Meet the developers!
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -58,7 +58,7 @@ function HomePage() {
                         <line x1="5" y1="12" x2="19" y2="12"></line>
                         <polyline points="12 5 19 12 12 19"></polyline>
                       </svg>
-                    </a>
+                    </div>
                   </Link>
                 </div>
               </div>

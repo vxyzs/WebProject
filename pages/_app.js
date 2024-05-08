@@ -1,6 +1,6 @@
 import '../styles/globals.css';
-import { Provider } from 'next-auth/client';
 import Layout from '@/components/Layout/Layout';
+import { SessionProvider } from 'next-auth/react';
 
 import Head from 'next/head';
 
@@ -9,7 +9,7 @@ import NextNProgress from 'nextjs-progressbar';
 
 function MyApp({ Component, pageProps }) {
   return (
-    <Provider session={pageProps.session}>
+    <SessionProvider session={pageProps.session}>
       <Head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </Head>
@@ -22,7 +22,7 @@ function MyApp({ Component, pageProps }) {
       <Layout>
         <Component {...pageProps} />
       </Layout>
-    </Provider>
+    </SessionProvider>
   );
 }
 

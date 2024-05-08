@@ -1,8 +1,8 @@
-import { useSession } from 'next-auth/client';
+import { useSession } from 'next-auth/react';
 import FeedRow from './FeedRow';
 
 function Feed({ cases }) {
-  const [session] = useSession();
+  const {data: session} = useSession();
   return (
     <section>
       {cases.length === 0 ? (

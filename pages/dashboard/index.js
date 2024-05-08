@@ -1,7 +1,7 @@
 import Feed from '@/components/Feed';
 import FeedHeader from '@/components/FeedHeader';
 import { connectToDatabase } from '@/helpers/db-utils';
-import { getSession, signOut, useSession } from 'next-auth/client';
+import { getSession, signOut, useSession } from 'next-auth/react';
 
 import Head from 'next/head';
 

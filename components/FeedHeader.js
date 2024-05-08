@@ -14,7 +14,7 @@ function FeedHeader() {
             </p>
           </div>
           <Link href="/dashboard/AddCases">
-            <a className="inline-flex items-center justify-center w-full px-5 py-4 mt-6 ml-0 font-sans text-base leading-none text-white no-underline bg-blue-700 border border-blue-700 border-solid cursor-pointer md:w-auto lg:mt-0 hover:bg-blue-500 hover:border-blue-700 hover:text-black focus-within:bg-indigo-700 focus-within:border-indigo-700 focus-within:text-white sm:text-lg lg:ml-6 md:text-xl rounded-2xl">
+            <div className="inline-flex items-center justify-center w-full px-5 py-4 mt-6 ml-0 font-sans text-base leading-none text-white no-underline bg-blue-700 border border-blue-700 border-solid cursor-pointer md:w-auto lg:mt-0 hover:bg-blue-500 hover:border-blue-700 hover:text-black focus-within:bg-indigo-700 focus-within:border-indigo-700 focus-within:text-white sm:text-lg lg:ml-6 md:text-xl rounded-2xl">
               Add Cases
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -29,7 +29,7 @@ function FeedHeader() {
                 <line x1="5" y1="12" x2="19" y2="12"></line>
                 <polyline points="12 5 19 12 12 19"></polyline>
               </svg>
-            </a>
+            </div>
           </Link>
         </div>
       </div>

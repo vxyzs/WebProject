@@ -1,4 +1,4 @@
-import { signin } from 'next-auth/client';
+import { signIn } from 'next-auth/react';
 import { useRef, useState } from 'react';
 
 import toast from 'react-hot-toast';
@@ -141,7 +141,7 @@ function SignUpPage(props) {
 
       {/* Google Provider */}
       <button
-        onClick={signin}
+        onClick={() => signIn()}
         href="#_"
         className="inline-block w-full px-5 py-4 mt-3 text-lg font-bold text-center text-gray-900 transition duration-200 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 ease"
       >
