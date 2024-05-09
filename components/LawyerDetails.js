@@ -105,7 +105,7 @@ function LawyerDetails({ lawyer }) {
             Date of Birth:
           </label>
           <p className="flex-1 py-2 border-b-2 border-gray-400 text-gray-600  outline-none">
-            {lawyer.dob}
+            {lawyer.dob.split('T')[0]}
           </p>
         </div>
 

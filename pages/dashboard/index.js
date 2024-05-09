@@ -42,7 +42,6 @@ export async function getServerSideProps(context) {
       },
     };
   }
-  console.log(session?.user)
   const client = await connectToDatabase();
   const db = client.db();
   const response = await db.collection('cases').find().toArray();

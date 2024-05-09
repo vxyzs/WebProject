@@ -73,14 +73,14 @@ function DisplayCaseDetails(props) {
             </p>
           </div>
 
-          <div className="flex items-center mb-5">
+          {/* <div className="flex items-center mb-5">
             <label className="inline-block w-32 mr-6 text-right font-bold text-blue-700">
               Fee(Rs):
             </label>
             <p className="flex-1 py-2 border-b-2 border-gray-400 text-gray-600  outline-none">
               {props.fees}
             </p>
-          </div>
+          </div> */}
         </div>
       </div>
       <div className="flex items-center">

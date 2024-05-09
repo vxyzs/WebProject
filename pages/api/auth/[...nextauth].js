@@ -38,8 +38,11 @@ export default NextAuth({
 
         client.close();
 
+        const name = user.firstName + user.lastName;
+
         return {
           email: user.email,
+          name: user.firstName,
         };
       },
     }),

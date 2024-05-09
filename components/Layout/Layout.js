@@ -40,6 +40,11 @@ function Layout(props) {
                       Add cases
                     </div>
                   </Link>
+                  <Link href="/lawyers">
+                    <div className="block py-2 px-4 text-sm hover:bg-gray-200">
+                      Lawyers List
+                    </div>
+                  </Link>
                 </div>
               )}
             </div>
@@ -105,12 +110,16 @@ function Layout(props) {
                 Dashboard
               </div>
             </Link>
+            <Link href="/lawyers">
+              <div className="block py-2 px-4 text-sm hover:bg-gray-200">
+                Lawyers List
+              </div>
+            </Link>
             <Link href="/AddCases">
               <div className="block py-2 px-4 text-sm hover:bg-gray-200">
                 Add cases
               </div>
             </Link>
-
             {!session && (
               <Link href="/auth">
                 <div className="block py-2 px-4 text-sm hover:bg-gray-200">
