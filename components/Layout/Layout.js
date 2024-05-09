@@ -40,6 +40,11 @@ function Layout(props) {
                       Add cases
                     </div>
                   </Link>
+                  <Link href="/lawyers">
+                    <div className="py-5 px-3 text-gray-700 hover:text-gray-900">
+                      Lawyers List
+                    </div>
+                  </Link>
                 </div>
               )}
             </div>

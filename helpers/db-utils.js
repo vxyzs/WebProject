@@ -14,7 +14,7 @@ export async function connectToDatabase() {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
-
+  console.log(client);
   return client;
 }
 
@@ -22,8 +22,9 @@ export async function getAllLawyerProfiles(client) {
   const db = client.db();
 
   const documents = await db.collection('lawyersList').find().toArray();
-  // console.log(documents);
-
+  console.log(documents);
+  if(!documents){console.log("errrrrrrrrrrrrrrrrorrrrrrrrrrrrr")};
+  console.log("helllllllllllllllllllloooooooooooooooooo");
   return documents;
 }
 
@@ -39,10 +40,10 @@ export async function getLawyerProfile(client, id) {
 
 export async function getLawyerId(client, id) {
   const db = client.db();
-
+// console.log("iiiiiiiiiiiiiiiiiiiddddddddddddddddddddddd", id);
   const lawyerProfile = await db.collection('lawyersList').findOne({
-    bar_council_id: id,
+    bar_council_id: id
   });
-
+// console.log("lawyeeee" , lawyerProfile);
   return lawyerProfile;
 }
