@@ -7,8 +7,7 @@ import { MongoClient, ObjectID } from 'mongodb';
 
 // const MONGODB_URI = `mongodb+srv://${username}:${password}@${cluster}.3svps.mongodb.net/${database}?retryWrites=true&w=majority`;
 
-const MONGODB_URI =
-  'mongodb+srv://WebProject:1ev7pMVDKHo6Y1WC@cluster0.y65ghx1.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+const MONGODB_URI = process.env.MONGODB_URI;
 
 export async function connectToDatabase() {
   const client = await MongoClient.connect(MONGODB_URI, {

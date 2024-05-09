@@ -19,7 +19,7 @@ function Dashboard(props) {
           content="Adaalat: One step Solution to managing court hearings"
         />
       </Head>
-      <div className="flex items-center justify-center mt-20 text-3xl">
+      <div className="flex items-start justify-center mt-20 text-3xl font-serif">
         Welcome : {props.session.user.name || props.session.user.email}
       </div>
       {/* Section for add clients */}
@@ -42,7 +42,7 @@ export async function getServerSideProps(context) {
       },
     };
   }
-
+  console.log(session?.user)
   const client = await connectToDatabase();
   const db = client.db();
   const response = await db.collection('cases').find().toArray();

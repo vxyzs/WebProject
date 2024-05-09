@@ -1,14 +1,17 @@
 import { Fragment } from 'react';
+import toast from 'react-hot-toast';
 
 function DisplayCaseDetails(props) {
   const uid = props.caseDetail.uid;
+
   function deleteHandler() {
     props.delete(uid);
+    toast.success("Case withdrawn");
   }
 
   return (
     <Fragment>
-      <div className="bg-white py-32 px-10 min-h-screen ">
+      <div className="bg-white py-16 px-10">
         <div className="bg-gray-100 p-10 md:w-3/4 lg:w-1/2 mx-auto">
           <div className="flex items-center mb-5">
             <label className="items-center mr-6 text-right font-black text-gray-600 text-2xl">
@@ -80,7 +83,11 @@ function DisplayCaseDetails(props) {
           </div>
         </div>
       </div>
-      <button onClick={deleteHandler}>Withdraw Case</button>
+      <div className="flex items-center">
+        <button className=" bg-red-600 p-3 rounded-md mx-auto text-white" onClick={deleteHandler}>
+          Withdraw Case
+        </button>
+      </div>
     </Fragment>
   );
 }
