@@ -1,6 +1,5 @@
 import { signIn } from 'next-auth/react';
 import { useRef, useState } from 'react';
-
 import toast from 'react-hot-toast';
 
 async function createUser(email, password, firstName, lastName) {
@@ -14,6 +13,7 @@ async function createUser(email, password, firstName, lastName) {
   const data = await response.json();
 
   if (!response.ok) {
+    toast.error('User already exists.');
     throw new Error(response.message || 'Something went wrong');
   }
 
@@ -27,6 +27,7 @@ function SignUpPage(props) {
   const passwordInputRef = useRef(null);
   const fnameInputRef = useRef(null);
   const lnameInputRef = useRef(null);
+  const roleInputRef =useRef('');
 
   async function submitHandler(e) {
     e.preventDefault();
@@ -36,6 +37,7 @@ function SignUpPage(props) {
     const enteredPassword = passwordInputRef.current.value;
     const enteredFirstName = fnameInputRef.current.value;
     const enteredLastName = lnameInputRef.current.value;
+    const enteredRole = roleInputRef.current.valueOf;
 
     if (
       !enteredEmail ||
@@ -55,19 +57,22 @@ function SignUpPage(props) {
         enteredEmail,
         enteredPassword,
         enteredFirstName,
-        enteredLastName
+        enteredLastName,
+        enteredRole
       );
       console.log(response);
       toast.dismiss(toastId);
       toast.success("You're in 🤘🏼");
     } catch (error) {
       console.log(error);
+      toast.dismiss(toastId);
     }
 
     emailInputRef.current.value = '';
     fnameInputRef.current.value = '';
     lnameInputRef.current.value = '';
     passwordInputRef.current.value = '';
+    roleInputRef.current.valueOf = '';
   }
 
   return (
@@ -121,7 +126,17 @@ function SignUpPage(props) {
                       placeholder="Password"
                     />
                   </div>
-
+                  <div className="relative">
+                    <label className="font-medium text-gray-900">Role</label>
+                    <select
+                      ref={roleInputRef}
+                      className="block w-full px-4 py-4 mt-2 text-xl placeholder-gray-400 bg-gray-200 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50"
+                    >
+                      <option value="user">User</option>
+                      <option value="judge">Judge</option>
+                      <option value="lawyer">Lawyer</option>
+                    </select>
+                  </div>
                   <div className="relative">
                     <button
                       type="submit"
