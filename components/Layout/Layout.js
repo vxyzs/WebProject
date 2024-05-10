@@ -31,17 +31,17 @@ function Layout(props) {
               {session && (
                 <div className="hidden md:flex items-center space-x-1">
                   <Link href="/dashboard">
-                    <div className="py-5 px-3 text-gray-700 hover:text-gray-900">
+                    <div className="block py-2 px-4 text-sm hover:bg-gray-200 rounded-md">
                       Dashboard
                     </div>
                   </Link>
                   <Link href="/dashboard/AddCases">
-                    <div className="py-5 px-3 text-gray-700 hover:text-gray-900">
+                    <div className="block py-2 px-4 text-sm hover:bg-gray-200 rounded-md">
                       Add cases
                     </div>
                   </Link>
                   <Link href="/lawyers">
-                    <div className="block py-2 px-4 text-sm hover:bg-gray-200">
+                    <div className="block py-2 px-4 text-sm hover:bg-gray-200 rounded-md">
                       Lawyers List
                     </div>
                   </Link>
@@ -65,7 +65,7 @@ function Layout(props) {
                 onClick={signOut}
                 className="hidden cursor-pointer md:flex items-center space-x-1"
               >
-                <div className="py-2 px-3 bg-blue-700 hover:bg-blue-500 text-white hover:text-black rounded transition duration-300">
+                <div className="py-2 px-3 bg-blue-700 hover:bg-blue-500 text-white hover:text-black rounded-full transition duration-300">
                   SignOut
                 </div>
               </div>
@@ -73,7 +73,7 @@ function Layout(props) {
             {!session && (
               <div className="hidden md:flex items-center space-x-1">
                 <Link href="/auth">
-                  <div className="py-2 px-3 bg-blue-700 hover:bg-blue-500 text-white hover:text-black rounded transition duration-300">
+                  <div className="py-2 px-3 bg-blue-700 hover:bg-blue-500 text-white hover:text-black rounded-full transition duration-300">
                     SignUp
                   </div>
                 </Link>

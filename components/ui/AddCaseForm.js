@@ -153,14 +153,14 @@ export default function AddCaseForm(props) {
 
       <div className="flex space-y-4 flex-col md:flex-row justify-evenly">
         <input
-          className="px-2 py-2 my-2"
+          className="border-0 px-3 py-3 mt-4 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring ease-linear transition-all duration-150"
           type="date"
           placeholder="Hearing Date"
           {...register('Hearing_Date', { required: true })}
         />
 
         <input
-          className="px-2 py-2"
+          className="border-0 px-3 py-3 mt-4 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring ease-linear transition-all duration-150"
           type="text"
           placeholder="Court Type"
           {...register('Court_Type', { required: true })}
@@ -168,7 +168,7 @@ export default function AddCaseForm(props) {
       </div>
 
       <input
-        className="block my-2 bg-gray-300 hover:bg-gray-400 rounded-md p-2"
+        className="block my-2 bg-green-500 hover:bg-green-600 rounded-md p-2"
         type="submit"
       />
     </form>

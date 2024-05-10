@@ -1,3 +1,101 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+
+.main {
+    width: 100vw;
+    min-height: 100vh;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    padding: 120px 24px 160px 24px;
+    pointer-events: none;
+  }
+  
+  .main:before {
+    position: absolute;
+    content: "";
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    top: 0;
+  }
+  
+  .main:after {
+    content: "";
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    opacity: 0.4;
+    filter: invert(1);
+  }
+
+  .black_btn {
+    @apply rounded-full border border-black bg-black py-1.5 px-5 text-white transition-all hover:bg-white hover:text-black text-center text-sm flex items-center justify-center;
+  }
+  
+  /* Mobile menu */
+.mobile-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: #f9f9f9;
+    border-top: 1px solid #ccc;
+  }
+  
+  /* Show the mobile menu when it's open */
+  .mobile-menu.show {
+    display: block;
+  }
+  
+  /* Mobile menu item */
+  .mobile-menu div {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  /* Mobile menu button */
+  .mobile-menu-button {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+  }
+  
+  /* Adjust the mobile menu button icon color */
+  .mobile-menu-button svg {
+    fill: #333;
+  }
+  
+  /* Adjust the appearance of the mobile menu button when hovered */
+  .mobile-menu-button:hover svg {
+    fill: #555;
+  }
+  
+
+  .form-select {
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  }
+  
+  .form-select:focus {
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+  
