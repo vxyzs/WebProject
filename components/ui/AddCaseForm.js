@@ -44,13 +44,11 @@ export default function AddCaseForm(props) {
     toast.dismiss(toastId);
     router.replace('/dashboard');
     toast.success('Your case has been registered');
-    // console.log(data);
   };
   console.log(errors);
 
   return (
     <form onSubmit={handleSubmit(onSubmit)}>
-      {/* Select case-type */}
 
       <div className="mt-6">
         <label className="block uppercase tracking-wide text-gray-500 text-xs font-bold mb-2">
@@ -69,7 +67,6 @@ export default function AddCaseForm(props) {
           <option value="SEBI">SEBI</option>
         </select>
       </div>
-      {/* Enter description */}
       <div className="mt-6">
         <label className="block uppercase tracking-wide text-gray-500 text-xs font-bold mb-2">
           Case description
