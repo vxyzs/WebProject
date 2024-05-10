@@ -1,9 +1,7 @@
 import { verifyPassword } from '@/helpers/auth-utils';
 import { connectToDatabase } from '@/helpers/db-utils';
-import User from '@/models/users';
 import NextAuth from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
-import Google from 'next-auth/providers/google';
 
 export default NextAuth({
   session: {
@@ -53,34 +51,4 @@ export default NextAuth({
       },
     },
   ],
-  // callbacks: {
-  //   async session({ session }) {
-  //     const sessionUser = await User.findOne({
-  //       email: session.user.email
-  //     });
-
-  //     session.user.id = sessionUser._id.toString();
-  //     return session;
-  //   },
-  //   async signIn({email, password}) {
-  //     console.log(email);
-  //     try {
-  //       await connectToDatabase(); // Assuming this is correct
-  //       const userExists = await User.findOne({
-  //         email: email
-  //       });
-
-  //       if (!userExists) {
-  //         await User.create({
-  //           email: email,
-  //           password: password,
-  //         });
-  //       }
-  //       return true;
-  //     } catch (error) {
-  //       console.error('Error during sign-in:', error);
-  //       return false;
-  //     }
-  //   },
-  // },
 });
