@@ -10,7 +10,6 @@ export default function AddCaseForm(props) {
     const router = useRouter();
     const { data: session } = useSession();
 
-    const { names } = props;
     const {
         register,
         handleSubmit,
