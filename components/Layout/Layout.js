@@ -2,8 +2,9 @@ import { signOut, useSession } from 'next-auth/react';
 import { Fragment } from 'react';
 import Link from 'next/link';
 
-function Layout(props) {
+export default function Layout(props) {
   const {data: session} = useSession();
+  
   return (
     <Fragment>
       <nav className="bg-gray-100">
@@ -135,4 +136,3 @@ function Layout(props) {
   );
 }
 
-export default Layout;

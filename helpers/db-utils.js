@@ -46,3 +46,23 @@ export async function getLawyerId(client, id) {
 
   return lawyerProfile;
 }
+
+export async function getUserDetails(client, email){
+  const db = client.db();
+
+  const user = await db.collection('User').findOne({
+    email: email,
+  })
+
+  return user;
+}
+
+export async function getCase(client, email){
+  const db = client.db();
+
+  const user = await db.collection('cases').find({
+    email: email,
+  }).toArray();
+
+  return user;
+}

@@ -1,11 +1,11 @@
-import { useSession } from "next-auth/react";
+import { useSession, getSession } from "next-auth/react";
 
 function Userprofile() {
   return <div>User profile</div>;
 }
 
 export async function getServerSideProps(context) {
-  const { data: session} = useSession();
+  const session = await getSession({ req: context.req });
   // checks for the incoming request and sees whether a session token is available or not and accordingly takes action
 
   if (!session) {

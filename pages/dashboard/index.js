@@ -1,13 +1,15 @@
 import Feed from '@/components/Feed';
 import FeedHeader from '@/components/FeedHeader';
-import { connectToDatabase } from '@/helpers/db-utils';
+import { connectToDatabase, getUserDetails, getCase } from '@/helpers/db-utils';
 import { getSession, signOut, useSession } from 'next-auth/react';
+
 
 import Head from 'next/head';
 
 function Dashboard(props) {
   const { cases } = props;
   const parsedData = JSON.parse(cases);
+  
   // console.log(session);
 
   return (
@@ -25,7 +27,7 @@ function Dashboard(props) {
       {/* Section for add clients */}
       <FeedHeader />
       {/* Table of clients */}
-      <Feed cases={parsedData} />
+      <Feed cases={parsedData} user={props.user}/>
     </div>
   );
 }
@@ -43,8 +45,9 @@ export async function getServerSideProps(context) {
     };
   }
   const client = await connectToDatabase();
+  const user = await getUserDetails(client,session?.user.email);
   const db = client.db();
-  const response = await db.collection('cases').find().toArray();
+  const response = !user.isJudge ? await getCase(client,session?.user.email): await db.collection('cases').find().toArray();
   const stringifiedData = JSON.stringify(response);
 
   return {

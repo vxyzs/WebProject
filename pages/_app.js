@@ -3,7 +3,6 @@ import Layout from '@/components/Layout/Layout';
 import { SessionProvider } from 'next-auth/react';
 
 import Head from 'next/head';
-
 import { Toaster } from 'react-hot-toast';
 import NextNProgress from 'nextjs-progressbar';
 
