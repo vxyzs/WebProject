@@ -4,7 +4,7 @@ import { connectToDatabase } from '@/helpers/db-utils';
 async function handler(req, res) {
   if (req.method === 'POST') {
     const data = req.body;
-    const { email, password, firstName, lastName } = data;
+    const { email, password, firstName, lastName, isJudge } = data;
 
     // server side validation
     if (
@@ -42,6 +42,7 @@ async function handler(req, res) {
       password: hashedPassword,
       firstName,
       lastName,
+      isJudge
     });
 
     res.status(201).json({ message: 'Created User!!', result });

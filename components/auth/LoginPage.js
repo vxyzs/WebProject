@@ -37,7 +37,6 @@ function LoginPage() {
         toast.error(result.error);
       } else {
         toast.dismiss(toastId);
-        router.push('/dashboard');
         toast.success('Welcome!');
       }
   }
@@ -79,7 +78,6 @@ function LoginPage() {
                   <div className="relative">
                     <button
                       type="submit"
-                      href="#_"
                       className="inline-block w-full px-5 py-4 text-lg font-medium text-center text-white transition duration-200 bg-blue-600 rounded-lg hover:bg-blue-700 ease"
                     >
                       Login
@@ -92,16 +90,6 @@ function LoginPage() {
         </div>
       </form>
       <hr className="border-blueGray-300" />
-      <div className="flex  items-center justify-center ">
-        <div className="relative w-3/12 ">
-          <button
-            onClick={() => signIn('Google')}
-            className="inline-block w-full px-5 py-4 mt-3 text-lg font-bold text-center text-gray-900 transition duration-200 bg-white border border-gray-300 rounded-lg hover:bg-gray-100 ease"
-          >
-            Login with Google
-          </button>
-        </div>
-      </div>
     </section>
   );
 }

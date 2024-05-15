@@ -26,7 +26,7 @@ export default NextAuth({
         // compare passwords
         const isValid = await verifyPassword(
           credentials.password,
-          user.password
+          user.password,
         );
 
         if (!isValid) {
@@ -35,20 +35,15 @@ export default NextAuth({
         }
 
         client.close();
-
+        console.log(user);
         const name = user.firstName + ' ' + user.lastName;
-
+        
         return {
           email: user.email,
           name: name,
+          isJudge: user.isJudge,
         };
       },
     }),
-    {
-      Google: {
-        clientId: process.env.GOOGLE_CLIENT_ID,
-        clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      },
-    },
   ],
 });
