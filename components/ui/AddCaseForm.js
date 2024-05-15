@@ -81,7 +81,8 @@ export default function AddCaseForm(props) {
       </div>
 
       {/* Select Lawyer */}
-      <div className="mt-6">
+      <div className="mt-6 flex flex-row justify-around">
+        <div  >
         <label className="block uppercase tracking-wide text-gray-500 text-xs font-bold mb-2">
           Select Lawyer
         </label>
@@ -98,6 +99,19 @@ export default function AddCaseForm(props) {
             </label>
           ))}
         </div>
+        </div>
+       
+        <div >
+        <label className="block uppercase tracking-wide text-gray-500 text-xs font-bold mb-2">
+          Court Type
+        </label>
+        <input
+          className="border-0 px-3 py-3 mt-0 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+          type="text"
+          placeholder="Court Type"
+          {...register('Court_Type', { required: true })}
+        />
+      </div>
       </div>
 
       <div className="w-full my-6 md:w-3/3 px-3 mb-6 md:mb-0">
@@ -151,24 +165,10 @@ export default function AddCaseForm(props) {
         </div>
       </div>
 
-      <div className="flex space-y-4 flex-col md:flex-row justify-evenly">
-        <input
-          className="px-2 py-2 my-2"
-          type="date"
-          placeholder="Hearing Date"
-          {...register('Hearing_Date', { required: true })}
-        />
-
-        <input
-          className="px-2 py-2"
-          type="text"
-          placeholder="Court Type"
-          {...register('Court_Type', { required: true })}
-        />
-      </div>
+     
 
       <input
-        className="block my-2 bg-gray-300 hover:bg-gray-400 rounded-md p-2"
+        className="block mt-9 m-auto bg-green-300 hover:bg-gray-400 rounded-md p-2"
         type="submit"
       />
     </form>

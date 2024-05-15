@@ -1,15 +1,16 @@
 import DisplayCaseDetails from '@/components/DisplayCaseDetails';
 import { connectToDatabase } from '@/helpers/db-utils';
-
+import { getSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
-import { getSession } from 'next-auth/client';
+
 import toast from 'react-hot-toast';
+import { useState } from 'react';
+
 
 function CaseDetailsPage(props) {
   const parsedFees = JSON.parse(props.fees);
   const parsedData = JSON.parse(props.caseDetail);
-
   const router = useRouter();
 
   // delete case
@@ -49,7 +50,8 @@ function CaseDetailsPage(props) {
 
 export async function getServerSideProps(context) {
   const caseId = context.params.caseId;
-
+ 
+ 
   const session = await getSession({ req: context.req });
   // checks for the incoming request and sees whether a session token is available or not and accordingly takes action
 
@@ -68,9 +70,9 @@ export async function getServerSideProps(context) {
   const stringifiedData = JSON.stringify(response);
 
   const parsedData = JSON.parse(stringifiedData);
-
+    const userType = "Judge";
   // if the user is logged in but tries acceses unauthorized content of any other user
-  if (session.user.email !== parsedData.email) {
+  if (session.user.email !== parsedData.email && userType!="Judge") {
     return {
       redirect: {
         destination: '/dashboard',

@@ -1,10 +1,10 @@
 import Feed from '@/components/Feed';
 import FeedHeader from '@/components/FeedHeader';
+import Footer from '@/components/Footer';
 import { connectToDatabase } from '@/helpers/db-utils';
 import { getSession, signOut, useSession } from 'next-auth/react';
-import image from './download.jpg';
+
 import Head from 'next/head';
-import Footer from '@/components/Footer';
 
 function Dashboard(props) {
   const { cases } = props;
@@ -20,24 +20,21 @@ function Dashboard(props) {
           content="Adaalat: One step Solution to managing court hearings"
         />
       </Head>
-      <div >
-      <div 
-          style={{ 
+      <div  style={{ 
             backgroundImage: "url('https://media.gettyimages.com/id/1195318484/photo/general-view-of-supreme-court-of-india-in-new-delhi-india-on-22-january-2020-no-stay-on-caa.jpg?s=612x612&w=0&k=20&c=38ELBW4zuUx9KZCmEbpADY9K1zS0fZMlzsWS4Ej6XfM=')", 
            backgroundRepeat: "no-repeat",
            backgroundSize: "100% auto",
            height: "600px",
            width: "100%"
-          }} className=" py-20  flex items-start justify-center text-3xl font-serif">
+          }} className="flex items-start justify-center pt-10 text-3xl font-serif">
         Welcome : {props.session.user.name || props.session.user.email}
       </div>
-      </div>
-     
       {/* Section for add clients */}
-      <FeedHeader />
+      {/* <FeedHeader /> */}
       {/* Table of clients */}
+      <div className='m-8'></div>
       <Feed cases={parsedData} />
-      <div className='mb-8'></div>
+      <div className='m-8'></div>
       <Footer/>
     </div>
   );
@@ -60,6 +57,8 @@ export async function getServerSideProps(context) {
   const db = client.db();
   const response = await db.collection('cases').find().toArray();
   const stringifiedData = JSON.stringify(response);
+
+  console.log("ccccccccaaaaassssssseeeesssss", stringifiedData);
 
   return {
     props: {

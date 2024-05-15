@@ -11,12 +11,13 @@ async function handler(req, res) {
       City,
       Country,
       Postal_Code,
-      Hearing_Date,
+      // Hearing_Date,
       Court_Type,
       uid,
       email,
     } = data;
 
+    console.log("uuuuuuuuuuuuuuuuuuuuuuiiiiiiiiiiiiiiiiiiiiiddddddddddddd" ,uid);
     // console.log(data);
 
     const client = await connectToDatabase();
@@ -30,15 +31,18 @@ async function handler(req, res) {
       City,
       Country,
       Postal_Code,
-      Hearing_Date,
+      Hearing_Date: "Not Assigned",
       Court_Type,
       uid,
       email,
+      status:"pending"
     });
 
     res.status(201).json({ message: 'Successfully created case!', result });
     client.close();
   }
+
+
 }
 
 export default handler;

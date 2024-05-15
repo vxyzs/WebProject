@@ -1,8 +1,10 @@
 import { useSession } from 'next-auth/react';
 import FeedRow from './FeedRow';
+import { useState } from 'react';
 
 function Feed({ cases }) {
   const {data: session} = useSession();
+  const [userType, setUserType] = useState("Judge");
   return (
     <section>
       {cases.length === 0 ? (
@@ -36,6 +38,12 @@ function Feed({ cases }) {
                 .map((item, index) => (
                   <FeedRow key={item._id} case={item} number={index} />
                 ))}
+                {userType === "Judge" &&
+                 cases
+                 .map((item, index) => (
+                   <FeedRow key={item._id} case={item} number={index} />
+                 )) 
+                }
             </tbody>
           </table>
         </div>
