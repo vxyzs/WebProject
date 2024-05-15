@@ -42,7 +42,7 @@ export default function Layout(props) {
                     </div>
                   </Link>
                   <Link href="/lawyers">
-                    <div className="block py-2 px-4 text-sm hover:bg-gray-200 rounded-md">
+                    <div className="py-5 px-3 text-gray-700 hover:text-gray-900">
                       Lawyers List
                     </div>
                   </Link>

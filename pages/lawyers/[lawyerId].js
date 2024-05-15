@@ -9,6 +9,8 @@ import Head from 'next/head';
 
 function LawyerProfile(props) {
   const { profile } = props;
+  console.log("proofffffffffffffffffffile");
+  console.log(profile);
   const parsedProfile = JSON.parse(profile);
   const lawyerName = parsedProfile.name;
 
@@ -28,11 +30,14 @@ function LawyerProfile(props) {
 
 export async function getStaticProps(context) {
   const lawyerId = context.params.lawyerId;
-
+// console.log("LAWYERRRRRRRRRRRRRRRRRR IIIIIIIIIIIIIIIFDDDDDDDDDD", lawyerId);
   const client = await connectToDatabase();
 
   const profile = await getLawyerId(client, lawyerId);
+  console.log("ttyyyyyyyyyyyyyyypppppppppppeeee ", typeof(lawyerId));
   const data = JSON.stringify(profile);
+  // console.log("daaaaaaattttttttttttttttaaaaaaaaa" );
+  console.log(data);
 
   return {
     props: {
@@ -45,10 +50,12 @@ export async function getStaticPaths() {
   const client = await connectToDatabase();
 
   const profiles = await getAllLawyerProfiles(client);
+  // console.log(profiles);
   const paths = profiles.map((p) => ({
+  
     params: { lawyerId: p.bar_council_id.toString() },
   }));
-
+// console.log("paths " , paths);
   return {
     paths: paths,
     fallback: 'blocking',

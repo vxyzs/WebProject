@@ -63,7 +63,7 @@ export async function getStaticProps() {
   const allLawyerProfiles = await getAllLawyerProfiles(client);
 
   const data = JSON.stringify(allLawyerProfiles);
-
+// console.log("data", data);
   return {
     props: {
       profiles: data,

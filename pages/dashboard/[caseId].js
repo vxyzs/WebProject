@@ -3,9 +3,11 @@ import { connectToDatabase } from '@/helpers/db-utils';
 
 import { useRouter } from 'next/router';
 import Head from 'next/head';
-import { getSession } from 'next-auth/react';
+import { getSession } from 'next-auth/client';
+import toast from 'react-hot-toast';
 
 function CaseDetailsPage(props) {
+  const parsedFees = JSON.parse(props.fees);
   const parsedData = JSON.parse(props.caseDetail);
 
   const router = useRouter();
@@ -38,6 +40,7 @@ function CaseDetailsPage(props) {
       <DisplayCaseDetails
         caseDetail={parsedData}
         delete={deleteHandler}
+        fees={parsedFees.fees}
       />
     </>
   );
