@@ -1,5 +1,5 @@
-import { useSession } from 'next-auth/react';
-import FeedRow from './FeedRow';
+import { useSession } from "next-auth/react";
+import FeedRow from "./FeedRow";
 
 function Feed({ cases, user }) {
   const {data: session} = useSession();

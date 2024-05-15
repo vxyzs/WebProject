@@ -1,10 +1,10 @@
 import Feed from '@/components/Feed';
 import FeedHeader from '@/components/FeedHeader';
-import { connectToDatabase, getUserDetails, getCase } from '@/helpers/db-utils';
+import { connectToDatabase, getUserDetails, getCase , getAllCases} from '@/helpers/db-utils';
 import { getSession, signOut, useSession } from 'next-auth/react';
 
 
-import Head from 'next/head';
+import Head from "next/head";
 
 function Dashboard(props) {
   const { cases } = props;
@@ -33,8 +33,8 @@ function Dashboard(props) {
 }
 
 export async function getServerSideProps(context) {
-  const session = await getSession({ req: context.req });
-  // checks for the incoming request and sees whether a session token is available or not and accordingly takes action
+    const session = await getSession({ req: context.req });
+    // checks for the incoming request and sees whether a session token is available or not and accordingly takes action
 
   if (!session) {
     return {
@@ -46,16 +46,15 @@ export async function getServerSideProps(context) {
   }
   const client = await connectToDatabase();
   const user = await getUserDetails(client,session?.user.email);
-  const db = client.db();
-  const response = !user.isJudge ? await getCase(client,session?.user.email): await db.collection('cases').find().toArray();
+  const response = !user.isJudge ? await getCase(client,session?.user.email): await getAllCases(client);
   const stringifiedData = JSON.stringify(response);
 
-  return {
-    props: {
-      session,
-      cases: stringifiedData,
-    },
-  };
+    return {
+        props: {
+            session,
+            cases: stringifiedData,
+        },
+    };
 }
 
 export default Dashboard;
