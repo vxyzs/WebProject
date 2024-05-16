@@ -145,7 +145,6 @@ function DisplayCaseDetails(props) {
       </div>
     {user &&   
     <form onSubmit={handleSubmit(onSubmit)}>
-    {/* Select case-type */}
 
     
     <div className="flex p-4 flex-col md:flex-row justify-center">
