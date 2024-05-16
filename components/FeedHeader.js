@@ -3,6 +3,7 @@ import Image from 'next/image';
 import img from '../pages/dashboard/download.jpg'
 
 function FeedHeader(props) {
+  const isJudge = props.user;
   return (
     <section className="px-2 py-20 bg-white md:px-0">
         <div className="container items-center max-w-6xl px-8 mx-auto xl:px-5">
@@ -18,11 +19,16 @@ function FeedHeader(props) {
                     Adaalat
                   </span>
                 </h1>
-                <p className="mx-auto text-base text-gray-500 sm:max-w-md lg:text-xl md:max-w-3xl">
-                  <strong>Add Cases In One Click:</strong> Our service provides an optimal way for adding and managing cases
-                </p>
+                {isJudge ? (
+                  <p className="mx-auto text-base text-gray-500 sm:max-w-md lg:text-xl md:max-w-3xl">
+                    <strong>Efficient Case Management for Judges:</strong> Our service provides an optimal way for adding and managing cases
+                  </p>):(
+                  <p className="mx-auto text-base text-gray-500 sm:max-w-md lg:text-xl md:max-w-3xl">
+                    <strong>Add Cases In One Click:</strong> Our service provides an optimal way for adding and managing cases
+                  </p>
+                )}
                 <div className="relative flex flex-col sm:flex-row sm:space-x-4">
-                <Link href="/dashboard/AddCases">
+                {!isJudge && <Link href="/dashboard/AddCases">
                   <div className="inline-flex items-center justify-center w-full px-5 py-4 mt-6 font-sans text-base leading-none text-white no-underline bg-blue-700 border border-blue-700 border-solid cursor-pointer md:w-auto lg:mt-0 hover:bg-blue-500 hover:border-blue-700 hover:text-black focus-within:bg-indigo-700 focus-within:border-indigo-700 focus-within:text-white sm:text-lg lg:ml-6 md:text-xl rounded-2xl">
                     Add Cases
                     <svg
@@ -39,7 +45,7 @@ function FeedHeader(props) {
                       <polyline points="12 5 19 12 12 19"></polyline>
                     </svg>
                   </div>
-                </Link>
+                </Link>}
                 </div>
               </div>
             </div>

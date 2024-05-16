@@ -42,7 +42,7 @@ function CaseDetailsPage(props) {
       <DisplayCaseDetails
         caseDetail={parsedData}
         delete={deleteHandler}
-        fees={parsedFees.fees}
+        fees={parsedFees}
         userType={parsedUserType}
       />
     </>
@@ -71,7 +71,6 @@ export async function getServerSideProps(context) {
   const stringifiedData = JSON.stringify(response);
 
   const parsedData = JSON.parse(stringifiedData);
-  console.log(parsedData);
 
   if (session.user.email !== parsedData.email && !user.isJudge) {
     return {

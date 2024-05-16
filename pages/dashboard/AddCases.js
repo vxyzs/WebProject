@@ -1,7 +1,8 @@
 import React from 'react';
 import AddCase from '@/components/AddCase';
-import { connectToDatabase, getAllLawyerProfiles } from '@/helpers/db-utils';
+import { connectToDatabase, getAllLawyerProfiles, getUserDetails } from '@/helpers/db-utils';
 import { getSession } from 'next-auth/react';
+import toast from 'react-hot-toast';
 
 import Head from 'next/head';
 
@@ -37,6 +38,16 @@ export async function getServerSideProps(context) {
 
   const client = await connectToDatabase();
   const data = await getAllLawyerProfiles(client);
+  const user = await getUserDetails(client, session?.user.email);
+
+  if(user.isJudge){
+    return {
+      redirect: {
+        destination: '/dashboard',
+        permanent: false, 
+      },
+    };
+  }
 
   const lawyerNames = data.map((item) => ({
     name: item.name,

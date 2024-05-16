@@ -51,7 +51,7 @@ function LoginPage() {
               className="
             w-full bg-white lg:w-6/12 xl:w-5/12"
             >
-              <div className="flex flex-col items-start justify-start w-full h-full p-10 lg:p-16 xl:p-24">
+              <div className="flex flex-col items-start justify-start w-full h-full p-4 lg:p-10 xl:p-12">
                 <h4 className="w-full text-3xl font-bold">Login</h4>
                 <div className="relative w-full mt-5 space-y-8">
                   <div className="relative">

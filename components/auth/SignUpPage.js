@@ -108,11 +108,12 @@ function SignUpPage(props) {
       <form onSubmit={submitHandler}>
         <div className="mx-auto max-w-7xl">
           <div className="flex items-center justify-center">
-            <div className="w-full bg-white lg:w-6/12 xl:w-5/12">
-              <div className="flex flex-col items-start justify-start w-full h-full p-10 lg:p-16 xl:p-24">
+            <div className="w-full bg-white lg:w-3/4 xl:w-3/4">
+              <div className="flex flex-col items-start justify-start w-full h-full p-4 lg:p-6 xl:p-8">
                 <h4 className="w-full text-3xl font-bold">Signup</h4>
                 <div className="relative w-full mt-10 space-y-8">
-                  <div className="relative">
+                  <div className='flex flex-row gap-8'>
+                  <div className="relative w-1/2">
                     <label className="font-medium text-gray-900">
                       First Name
                     </label>
@@ -123,7 +124,7 @@ function SignUpPage(props) {
                       placeholder="Enter Your First Name"
                     />
                   </div>
-                  <div className="relative">
+                  <div className="relative w-1/2">
                     <label className="font-medium text-gray-900">
                       Last Name
                     </label>
@@ -134,7 +135,9 @@ function SignUpPage(props) {
                       placeholder="Enter Your Last Name"
                     />
                   </div>
-                  <div className="relative">
+                  </div>
+                  <div className='flex flex-row gap-8'>
+                  <div className="relative w-1/2">
                     <label className="font-medium text-gray-900">Email</label>
                     <input
                       ref={emailInputRef}
@@ -143,7 +146,7 @@ function SignUpPage(props) {
                       placeholder="Enter Your Email Address"
                     />
                   </div>
-                  <div className="relative">
+                  <div className="relative w-1/2">
                     <label className="font-medium text-gray-900">
                       Password
                     </label>
@@ -153,6 +156,7 @@ function SignUpPage(props) {
                       className="block w-full px-4 py-4 mt-2 text-xl placeholder-gray-400 bg-gray-200 rounded-lg focus:outline-none focus:ring-4 focus:ring-blue-600 focus:ring-opacity-50"
                       placeholder="Password"
                     />
+                  </div>
                   </div>
                   <div className="relative">
                     <label className="font-medium text-gray-900">Role</label>
@@ -183,7 +187,7 @@ function SignUpPage(props) {
                     </div>
                   </div>
                   {role === 'Judge' && 
-                    <div className="relative">
+                    <div className="relative w-2/3">
                       <label className="font-medium text-gray-900">
                         Enter Code
                       </label>
@@ -197,14 +201,14 @@ function SignUpPage(props) {
                         {verify ? (
                           <button
                           disabled
-                          className=" cursor-not-allowed w-1/4 items-center h-10 m-3 text-base font-medium text-center text-white transition duration-200 bg-blue-400 rounded-lg hover:bg-blue-500 ease"
+                          className=" cursor-not-allowed w-1/5 items-center h-10 m-4 text-base font-medium text-center text-white transition duration-200 bg-blue-400 rounded-lg hover:bg-blue-500 ease"
                         >
                           Verified
                         </button>
                         ):(
                         <button
                           onClick={handleCheck}
-                          className=" w-1/4 items-center h-10 m-3 text-base font-medium text-center text-white transition duration-200 bg-blue-600 rounded-lg hover:bg-blue-700 ease"
+                          className=" w-1/5 items-center h-10 m-4 text-base font-medium text-center text-white transition duration-200 bg-blue-600 rounded-lg hover:bg-blue-700 ease"
                         >
                           Verify
                         </button>
@@ -213,16 +217,17 @@ function SignUpPage(props) {
                       </div>
                     </div>
                   }
-                  <div className="relative">
+                  <div className="relative w-1/4">
                     <button
                       type="submit"
-                      className="inline-block w-full px-5 py-4 text-lg font-medium text-center text-white transition duration-200 bg-blue-600 rounded-lg hover:bg-blue-700 ease"
+                      className="inline-block w-full p-2 text-lg font-medium text-center text-white transition duration-200 bg-blue-600 rounded-lg hover:bg-blue-700 ease"
                     >
                       Create Account
                     </button>
                   </div>
                 </div>
               </div>
+              <hr />
             </div>
           </div>
         </div>

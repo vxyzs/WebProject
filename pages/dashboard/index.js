@@ -9,7 +9,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 
 function Dashboard(props) {
-  const { cases } = props;
+  const { cases, user } = props;
   const parsedData = JSON.parse(cases);
   
   // console.log(session);
@@ -23,7 +23,7 @@ function Dashboard(props) {
           content="Adaalat: One step Solution to managing court hearings"
         />
       </Head>
-      <FeedHeader session={props.session}/>
+      <FeedHeader session={props.session} user={user} />
       <Feed cases={parsedData} />
       <div className='mb-8'></div>
       <Footer/>
@@ -53,6 +53,7 @@ export async function getServerSideProps(context) {
         props: {
             session,
             cases: stringifiedData,
+            user: user.isJudge,
         },
     };
 }
