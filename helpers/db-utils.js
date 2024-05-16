@@ -65,9 +65,7 @@ export async function getCase(client, email){
 export async function getAllCases(client){
   const db = client.db();
 
-  const user = await db.collection('cases').find({
-    country: "India",
-  }).toArray();
+  const user = await db.collection('cases').find({}).toArray();
 
   return user;
 }

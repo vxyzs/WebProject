@@ -1,15 +1,17 @@
 import DisplayCaseDetails from '@/components/DisplayCaseDetails';
-import { connectToDatabase } from '@/helpers/db-utils';
-
+import { connectToDatabase, getUserDetails } from '@/helpers/db-utils';
+import { getSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import Head from 'next/head';
-import { getSession } from 'next-auth/client';
+
 import toast from 'react-hot-toast';
+import { useState } from 'react';
+
 
 function CaseDetailsPage(props) {
   const parsedFees = JSON.parse(props.fees);
   const parsedData = JSON.parse(props.caseDetail);
-
+  const parsedUserType = JSON.parse(props.user);
   const router = useRouter();
 
   async function deleteHandler(uid) {
@@ -41,6 +43,7 @@ function CaseDetailsPage(props) {
         caseDetail={parsedData}
         delete={deleteHandler}
         fees={parsedFees.fees}
+        userType={parsedUserType}
       />
     </>
   );
@@ -48,7 +51,8 @@ function CaseDetailsPage(props) {
 
 export async function getServerSideProps(context) {
   const caseId = context.params.caseId;
-
+ 
+ 
   const session = await getSession({ req: context.req });
 
   if (!session) {
@@ -62,11 +66,14 @@ export async function getServerSideProps(context) {
 
   const client = await connectToDatabase();
   const db = client.db();
+  const user = await getUserDetails(client, session?.user.email);
   const response = await db.collection('cases').findOne({ uid: caseId });
   const stringifiedData = JSON.stringify(response);
 
   const parsedData = JSON.parse(stringifiedData);
-  if (session.user.email !== parsedData.email) {
+  console.log(parsedData);
+
+  if (session.user.email !== parsedData.email && !user.isJudge) {
     return {
       redirect: {
         destination: '/dashboard',
@@ -78,11 +85,14 @@ export async function getServerSideProps(context) {
   const feeResponse = await db
     .collection('lawyersList')
     .findOne({ name: parsedData.Lawyer_Name });
-  const stringifyFee = JSON.stringify(feeResponse);
+  console.log(feeResponse);
+  const stringifyFee = feeResponse.fees;
+
   return {
     props: {
       caseDetail: stringifiedData,
       fees: stringifyFee,
+      user: user.isJudge,
     },
   };
 }

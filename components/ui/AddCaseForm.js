@@ -86,25 +86,39 @@ export default function AddCaseForm(props) {
                 />
             </div>
 
-            {/* Select Lawyer */}
-            <div className="mt-6">
-                <label className="block uppercase tracking-wide text-gray-500 text-xs font-bold mb-2">
-                Select Lawyer
-                </label>
-                <div className="mt-2 flex flex-col">
-                {names.map((item, index) => (
-                    <label key={index} className="inline-flex items-center">
-                    <input
-                        className="form-radio"
-                        {...register('Lawyer_Name', { required: true })}
-                        type="radio"
-                        value={item.name}
-                    />
-                    <span className="ml-2">{item.name}</span>
-                    </label>
-                ))}
-                </div>
-            </div>
+      {/* Select Lawyer */}
+      <div className="mt-6 flex flex-row justify-around">
+        <div  >
+        <label className="block uppercase tracking-wide text-gray-500 text-xs font-bold mb-2">
+          Select Lawyer
+        </label>
+        <div className="mt-2 flex flex-col">
+          {names.map((item, index) => (
+            <label key={index} className="inline-flex items-center">
+              <input
+                className="form-radio"
+                {...register('Lawyer_Name', { required: true })}
+                type="radio"
+                value={item.name}
+              />
+              <span className="ml-2">{item.name}</span>
+            </label>
+          ))}
+        </div>
+        </div>
+       
+        <div >
+        <label className="block uppercase tracking-wide text-gray-500 text-xs font-bold mb-2">
+          Court Type
+        </label>
+        <input
+          className="border-0 px-3 py-3 mt-0 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+          type="text"
+          placeholder="Court Type"
+          {...register('Court_Type', { required: true })}
+        />
+      </div>
+      </div>
 
             <div className="mt-6">
                 <label className="block uppercase tracking-wide text-gray-500 text-xs font-bold mb-2">
@@ -157,37 +171,12 @@ export default function AddCaseForm(props) {
                 </div>
             </div>
 
-            <div className="flex border-0 px-3 py-3 mt-4 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150">
-                <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                    <label className="block uppercase tracking-wide text-gray-500 text-xs font-bold mb-2">
-                        Hearing Date
-                    </label>
-                    <input
-                        className="px-2 py-2 my-2"
-                        type="date"
-                        placeholder="Hearing Date"
-                        {...register("Hearing_Date", { required: true })}
-                    />
-                </div>
+     
 
-                <div className="w-full md:w-1/3 px-3 mb-6 md:mb-0">
-                    <label className="block uppercase tracking-wide text-gray-500 text-xs font-bold mb-2">
-                        Court Type
-                    </label>
-
-                    <input
-                        className="border-0 px-3 py-3 mt-4 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
-                        type="text"
-                        placeholder="Court Type"
-                        {...register("Court_type", { required: true })}
-                    />
-                </div>
-            </div>
-
-            <input
-                className="block my-2 bg-gray-300 hover:bg-gray-400 rounded-md p-2"
-                type="submit"
-            />
-        </form>
-    );
+      <input
+        className="block mt-9 m-auto bg-green-300 hover:bg-gray-400 rounded-md p-2"
+        type="submit"
+      />
+    </form>
+  );
 }

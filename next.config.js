@@ -18,6 +18,7 @@ module.exports = withPWA({
       'media-exp1.licdn.com',
       'instagram.fpnq10-1.fna.fbcdn.net',
       'scontent-bom1-2.cdninstagram.com',
+      'legiteye.com',
     ],
   },
 });
