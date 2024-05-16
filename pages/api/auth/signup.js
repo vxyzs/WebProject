@@ -6,7 +6,6 @@ async function handler(req, res) {
     const data = req.body;
     const { email, password, firstName, lastName, isJudge } = data;
 
-    // server side validation
     if (
       !email ||
       !email.includes('@') ||
@@ -19,13 +18,10 @@ async function handler(req, res) {
       });
       return;
     }
-
-    // connect database
     const client = await connectToDatabase();
 
     const db = client.db();
 
-    //checks if user already exists from MongoDb
     const existingUser = await db.collection('User').findOne({ email: email });
     if (existingUser) {
       res.status(422).json({ message: 'User already exists!' });
@@ -33,10 +29,8 @@ async function handler(req, res) {
       return;
     }
 
-    // hash password using bcrypt
     const hashedPassword = await hashPassword(password);
 
-    // create user
     const result = await db.collection('User').insertOne({
       email: email,
       password: hashedPassword,

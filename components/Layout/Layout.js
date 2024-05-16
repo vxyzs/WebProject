@@ -1,17 +1,17 @@
 import { signOut, useSession } from 'next-auth/react';
-import { Fragment } from 'react';
+import { Fragment,useState } from 'react';
 import Link from 'next/link';
+import { TiThMenu } from "react-icons/ti";
 
 export default function Layout(props) {
   const {data: session} = useSession();
-  
+  const [toggledropdown, settoggledropdown] = useState(false);
   return (
     <Fragment>
       <nav className="bg-gray-100">
         <div className="max-w-6xl mx-auto px-4 py-4">
           <div className="flex justify-between">
             <div className="flex space-x-4">
-              {/* logo  */}
               <div>
                 <div className="flex flex-col w-16 h-16 items-center py-0 px-2 text-gray-700 hover:text-gray-900">
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTQfNV3i-VpkQCL2hNGHDOs3ZpBTuRIoci9A&usqp=CAU" alt="W3Schools.com"/>
@@ -21,7 +21,6 @@ export default function Layout(props) {
                 </div>
               </div>
 
-              {/* primary nav  */}
               {session && (
                 <div className="hidden md:flex items-center space-x-1">
                   <Link href="/dashboard">
@@ -43,17 +42,6 @@ export default function Layout(props) {
               )}
             </div>
 
-            {/* secondary nav  */}
-            {/* {session && (
-              <div className="hidden md:flex items-center space-x-1">
-                <Link href="/dashboard/Userprofile">
-                  <a className="py-2 px-3 bg-blue-700 hover:bg-blue-500 text-white hover:text-black rounded transition duration-300">
-                    Profile
-                  </a>
-                </Link>
-              </div>
-            )} */}
-
             {session && (
               <div
                 onClick={signOut}
@@ -74,55 +62,44 @@ export default function Layout(props) {
               </div>
             )}
 
-            {/* mobile button goes here  */}
-            <div className="md:hidden flex items-center">
-              <button className="mobile-menu-button">
-                <svg
-                  className="w-6 h-6"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
+            {session && (
+          <div className="sm:hidden flex relative">
+              <button width={37} height={37} className='rounded-full m-4' onClick={() => settoggledropdown((prev) => !prev)}><TiThMenu width={37} height={37}/></button>
+              { toggledropdown && (
+                <div className='dropdown bg-gray-100'>
+                <Link href="/dashboard">
+                    Dashboard
+                </Link>
+                <Link href="/lawyers">
+                    Lawyers List               
+                </Link>
+                <Link href="/AddCases">
+                    Add cases
+                </Link>
+                <div
+                  onClick={signOut}
+                  className="hidden cursor-pointer md:flex items-center space-x-1"
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                </svg>
-              </button>
-            </div>
+                  <div className="py-2 px-3 bg-blue-700 hover:bg-blue-500 text-white hover:text-black rounded-full transition duration-300">
+                    SignOut
+                  </div>
+                </div>
+                </div>
+              )}
+          </div>
+        )}
           </div>
         </div>
 
-        {/* mobile menu  */}
-        {session && (
-          <div className="mobile-menu hidden md:hidden">
-            <Link href="/dashboard">
-              <div className="block py-2 px-4 text-sm hover:bg-gray-200">
-                Dashboard
-              </div>
-            </Link>
-            <Link href="/lawyers">
-              <div className="block py-2 px-4 text-sm hover:bg-gray-200">
-                Lawyers List
-              </div>
-            </Link>
-            <Link href="/AddCases">
-              <div className="block py-2 px-4 text-sm hover:bg-gray-200">
-                Add cases
-              </div>
-            </Link>
-            {!session && (
+
+        
+        {!session && (
               <Link href="/auth">
                 <div className="block py-2 px-4 text-sm hover:bg-gray-200">
                   Signup
                 </div>
               </Link>
             )}
-          </div>
-        )}
       </nav>
       {props.children}
     </Fragment>

@@ -3,7 +3,6 @@ import { useRef, useState } from 'react';
 import toast from 'react-hot-toast';
 
 async function createUser(email, password, firstName, lastName, isJudge) {
-  // fetch request
   const response = await fetch('/api/auth/signup', {
     method: 'POST',
     body: JSON.stringify({ email, password, firstName, lastName, isJudge }),

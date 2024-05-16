@@ -7,7 +7,6 @@ import SignUpPage from './SignUpPage';
 function SignUp() {
   const [isLogin, setIsLogin] = useState(true);
 
-  // switch handler
   function switchAuthModeHandler() {
     setIsLogin((prevState) => !prevState);
   }

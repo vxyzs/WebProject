@@ -98,4 +98,34 @@
     outline: 0;
     box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
   }
+
+  
+  .dropdown {
+    position: absolute;
+    right: 0;
+    top: 100%;
+    margin-top: 0.75rem;
+    width: 100%;
+    padding: 1.25rem; 
+    border-radius: 0.5rem; 
+    min-width: 210px; 
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem; 
+    justify-content: flex-end;
+    align-items: flex-end;
+    text-decoration: solid;
+  }
+  
+  .dropdown_link {
+    font-size: 0.875rem; 
+    font-family: 'Inter', sans-serif; 
+    color: #4b5563; 
+    font-weight: 500; 
+  }
+  
+  .dropdown_link:hover {
+    color: #6b7280; 
+  }
+  
   

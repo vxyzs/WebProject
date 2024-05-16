@@ -20,51 +20,11 @@ function MeetTheDevelopersPage() {
                     name="description"
                     content="Meet the minds behind this open-source project!"
                 />
-
-                {/* Meta tags og */}
-                <meta
-                    property="og:title"
-                    content="Meet the developers!"
-                />
-                <meta
-                    property="og:description"
-                    content="The minds behind Adaalat- A court management system to register court hearings."
-                />
-                <meta
-                    property="og:image"
-                    content="https://res.cloudinary.com/dapafwlvo/image/upload/v1635871194/developers_u12bmd.png"
-                />
-                <meta
-                    property="og:url"
-                    content="https://adaalat.vercel.app/developers"
-                />
-                <meta
-                    name="twitter:card"
-                    content="summary_large_image"
-                />
-
-                {/* Twitter */}
-                <meta
-                    name="twitter:title"
-                    content="Meet the developers!"
-                />
-                <meta
-                    name="twitter:description"
-                    content="The minds behind Adaalat- A court management system to register court hearings."
-                />
-                <meta
-                    name="twitter:image"
-                    content="https://res.cloudinary.com/dapafwlvo/image/upload/v1635871194/developers_u12bmd.png"
-                />
-                <meta
-                    name="twitter:card"
-                    content="summary_large_image"
-                />
             </Head>
             <div className="container px-5 py-24 mx-auto">
                 <div className="flex items-center lg:w-3/5 mx-auto border-b pb-10 mb-10 border-gray-200 sm:flex-row flex-col">
                     <div className="sm:w-32 sm:h-32 h-20 w-20 sm:mr-10 inline-flex items-center justify-center rounded-full bg-pink-100 text-pink-500 flex-shrink-0">
-                        {/* Image */}
+                    
                         <Image
                             src={geoUrl}
                             className="rounded-full"

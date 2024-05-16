@@ -11,13 +11,12 @@ async function handler(req, res) {
       City,
       Country,
       Postal_Code,
-      // Hearing_Date,
       Court_Type,
       uid,
       email,
     } = data;
 
-    console.log("uuuuuuuuuuuuuuuuuuuuuuiiiiiiiiiiiiiiiiiiiiiddddddddddddd" ,uid);
+    // console.log("uuuuuuuuuuuuuuuuuuuuuuiiiiiiiiiiiiiiiiiiiiiddddddddddddd" ,uid);
     // console.log(data);
 
         const client = await connectToDatabase();

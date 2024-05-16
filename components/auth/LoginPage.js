@@ -22,16 +22,11 @@ function LoginPage() {
   
     const toastId = toast.loading('Logging In...');
   
-      // Attempt to sign in
       const result = await signIn('credentials',{
         email: enteredEmail,
         password: enteredPassword,
       });
-  
-      // Log the result
-      console.log(result);
-  
-      // Handle the result
+     
       if (result?.error) {
         toast.dismiss(toastId);
         toast.error(result.error);

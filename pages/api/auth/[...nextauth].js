@@ -13,7 +13,6 @@ export default NextAuth({
         const client = await connectToDatabase();
         const usersCollection = client.db().collection('User');
 
-        // find user if exists
         const user = await usersCollection.findOne({
           email: credentials.email,
         });
@@ -23,7 +22,6 @@ export default NextAuth({
           throw new Error('No user found!');
         }
 
-        // compare passwords
         const isValid = await verifyPassword(
           credentials.password,
           user.password,
