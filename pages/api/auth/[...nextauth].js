@@ -33,13 +33,11 @@ export default NextAuth({
         }
 
         client.close();
-        console.log(user);
         const name = user.firstName + ' ' + user.lastName;
         
         return {
           email: user.email,
           name: name,
-          isJudge: user.isJudge,
         };
       },
     }),

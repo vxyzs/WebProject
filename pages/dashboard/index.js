@@ -47,7 +47,6 @@ export async function getServerSideProps(context) {
   const db = client.db();
   const response = user.isJudge ? await getAllCases(client): await getCase(client,session?.user.email);
   const stringifiedData = JSON.stringify(response);
-  console.log(stringifiedData);
 
     return {
         props: {

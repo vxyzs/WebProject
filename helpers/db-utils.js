@@ -1,12 +1,5 @@
 import { MongoClient, ObjectID } from 'mongodb';
 
-// const username = process.env.MONGODB_USERNAME;
-// const password = process.env.MONGODB_PASSWORD;
-// const cluster = process.env.MONGODB_CLUSTER;
-// const database = process.env.MONGODB_DATABASE;
-
-// const MONGODB_URI = `mongodb+srv://${username}:${password}@${cluster}.3svps.mongodb.net/${database}?retryWrites=true&w=majority`;
-
 const MONGODB_URI = process.env.MONGODB_URI;
 
 export async function connectToDatabase() {

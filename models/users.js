@@ -1,6 +1,5 @@
 import { Schema, model, models } from "mongoose";
 
-// Define user schema
 const userSchema = new Schema({
     email: {
         type: String,
@@ -25,7 +24,6 @@ const userSchema = new Schema({
     },
 });
 
-// Create and export User model
 const User = models.User || model("User", userSchema);
 
 module.exports = User;
