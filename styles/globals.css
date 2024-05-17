@@ -34,11 +34,6 @@
     filter: invert(1);
   }
 
-  .black_btn {
-    @apply rounded-full border border-black bg-black py-1.5 px-5 text-white transition-all hover:bg-white hover:text-black text-center text-sm flex items-center justify-center;
-  }
-  
-  /* Mobile menu */
 .mobile-menu {
     display: none;
     position: absolute;
@@ -49,19 +44,16 @@
     border-top: 1px solid #ccc;
   }
   
-  /* Show the mobile menu when it's open */
   .mobile-menu.show {
     display: block;
   }
   
-  /* Mobile menu item */
   .mobile-menu div {
     padding: 10px 20px;
     font-size: 16px;
     color: #333;
   }
   
-  /* Mobile menu button */
   .mobile-menu-button {
     background: none;
     border: none;
@@ -70,12 +62,10 @@
     cursor: pointer;
   }
   
-  /* Adjust the mobile menu button icon color */
   .mobile-menu-button svg {
     fill: #333;
   }
   
-  /* Adjust the appearance of the mobile menu button when hovered */
   .mobile-menu-button:hover svg {
     fill: #555;
   }

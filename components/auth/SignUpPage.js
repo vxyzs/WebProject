@@ -100,6 +100,7 @@ function SignUpPage(props) {
     lnameInputRef.current.value = '';
     passwordInputRef.current.value = '';
     setcode('');
+    setverify(false);
   }
 
   return (
@@ -157,7 +158,8 @@ function SignUpPage(props) {
                     />
                   </div>
                   </div>
-                  <div className="relative">
+                  <div className='flex flex-row gap-8'>
+                  <div className="relative w-1/2">
                     <label className="font-medium text-gray-900">Role</label>
                     <div className='flex flex-row gap-2 m-2'>
                     <label className="inline-flex items-center">
@@ -184,6 +186,7 @@ function SignUpPage(props) {
                       <span className="ml-2">Judge</span>
                     </label>
                     </div>
+                  </div>
                   </div>
                   {role === 'Judge' && 
                     <div className="relative w-2/3">

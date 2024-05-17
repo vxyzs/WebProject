@@ -86,6 +86,15 @@ export default function Layout(props) {
                 </div>
                 </div>
               )}
+            <div className='sm:hidden flex relative'>
+              {!session && (
+              <Link href="/auth">
+                <div className="block py-2 px-4 text-sm hover:bg-gray-200">
+                  Signup
+                </div>
+              </Link>
+            )}
+            </div>
           </div>
         )}
           </div>
@@ -93,13 +102,7 @@ export default function Layout(props) {
 
 
         
-        {!session && (
-              <Link href="/auth">
-                <div className="block py-2 px-4 text-sm hover:bg-gray-200">
-                  Signup
-                </div>
-              </Link>
-            )}
+        
       </nav>
       {props.children}
     </Fragment>
